@@ -11,14 +11,14 @@ import json
 
 print("Start")
 
-TOKEN = "BBFF-TyjP0JHT6J8tupYsGrSbC4patCO2ow" # Put here your TOKEN from ubidots
+TOKEN = "TOKEN" # Put here your TOKEN from ubidots
 DELAY = 600  # Delay in seconds
 
 wlan = WLAN(mode=WLAN.STA)
 wlan.antenna(WLAN.INT_ANT)
 
 # Assign your Wi-Fi credentials
-wlan.connect("Anzies_wifi", auth=(WLAN.WPA2, "rudechalmers"), timeout=5000)
+wlan.connect("WiFi Name Here", auth=(WLAN.WPA2, "WiFi Password here"), timeout=5000)
 
 # connecting to WiFi
 while not wlan.isconnected ():
@@ -102,5 +102,5 @@ while True:
     pybytes.send_signal(4, light_perc)
     pybytes.send_signal(5, moist)
     pybytes.send_signal(6, moist_perc)
-    post_var("Felix_loPy4", temperature, humidity, light, light_perc, moist, moist_perc, 1)  # send data to UBIDOTS
+    post_var("MyDevice", temperature, humidity, light, light_perc, moist, moist_perc, 1)  # send data to UBIDOTS
     time.sleep(DELAY)
